@@ -1,6 +1,6 @@
 --counts the number of movies each actor has been in--
 
-movies= load '/Users/christyloke/hadoop/hadoop-student-homework/data/movie/imdb.tsv' using PigStorage('\t') 
+movies= load '.../data/movie/imdb.tsv' using PigStorage('\t') 
          as (actor:chararray, movie:chararray, year:int);
 
 movies = FOREACH movies GENERATE actor, movie;
@@ -10,4 +10,4 @@ actor_sorted = ORDER movies_count BY count DESC;
 
 --dump actor_sorted
 
-STORE actor_sorted INTO '/Users/christyloke/hadoop/hadoop-student-homework/output/movies-per-actor' USING PigStorage();
+STORE actor_sorted INTO '.../output/movies-per-actor' USING PigStorage();
